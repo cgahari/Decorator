@@ -15,9 +15,6 @@ namespace Decorator
             ILog loggingObject = new Log();
             IMessage messageObject = new Message();
 
-            ISave savingWithLoggingDecorator = new SaveWithLoggingDecorator(savingObject, loggingObject);
-            ISave savingWithLoggingAndMessagingDecorator = new SaveWithMessageDecorator(savingWithLoggingDecorator, messageObject);
-
             savingObject.save(str);
             Console.ReadLine();
 
@@ -27,9 +24,13 @@ namespace Decorator
             messageObject.displayMessage(str);
             Console.ReadLine();
 
+
+            ISave savingWithLoggingDecorator = new SaveWithLoggingDecorator(savingObject, loggingObject);
             savingWithLoggingDecorator.save(str);
             Console.ReadLine();
-         
+
+
+            ISave savingWithLoggingAndMessagingDecorator = new SaveWithMessageDecorator(savingWithLoggingDecorator, messageObject);       
             savingWithLoggingAndMessagingDecorator.save(str);
             Console.ReadLine();
         }
