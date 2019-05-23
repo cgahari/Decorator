@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Decorator_Composer
+namespace Decorator
 {
     public class SaveWithMessageDecorator : ISave
     {
